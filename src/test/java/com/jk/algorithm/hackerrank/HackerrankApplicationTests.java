@@ -1,5 +1,6 @@
 package com.jk.algorithm.hackerrank;
 
+import com.jk.algorithm.hackerrank.javaDataTypes.JavaDataTypes;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,6 +12,7 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
+        System.out.println("J tag");
     }
 
 }
