@@ -1,23 +1,13 @@
-package com.jk.algorithm.hackerrank;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+package com.jk.algorithm.hackerrank.tagContentExtractor;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class HackerrankApplicationTests {
+public class TagContentExtractor {
 
-//    Pattern pattern = Pattern.compile("\\d{1,2}");
-
-    @Test
-    public void contextLoads() {
+    public void solution() {
         List<String> testList = new ArrayList<>();
         int testCases = 4;
         int get = 0;
@@ -34,11 +24,19 @@ public class HackerrankApplicationTests {
             Pattern pattern = Pattern.compile("<(.+)>([^<]+)</\\1>");
             Matcher m = pattern.matcher(line);
 
-            System.out.println(m.find());
+            boolean flag = false;
+
+            while (m.find()) {
+                System.out.println(m.group(2));
+                flag = true;
+            }
+
+            if (!flag) {
+                System.out.println("None");
+            }
 
             testCases--;
             get++;
         }
     }
-
 }
