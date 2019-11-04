@@ -5,10 +5,9 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Comparator;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -18,26 +17,24 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        List<String> testList = new ArrayList<>();
-        int testCases = 4;
-        int get = 0;
+        int n = 9;
+        String[] s = {"-100", "50", "0", "56.6", "90", "0.12", ".12", "02.34", "000.000"};
 
-        testList.add("<h1>Nayeem loves counseling</h1>");
-        testList.add("<h1><h1>Sanjay has no watch</h1></h1><par>So wait for a while</par>");
-        testList.add("<Amee>safat codes like a ninja</amee>");
-        testList.add("<SA premium>Imtiaz has a secret crush</SA premium>");
+        Comparator<String> customComparator = new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                BigDecimal a = new BigDecimal(s1);
+                BigDecimal b = new BigDecimal(s2);
+                return b.compareTo(a); // descending order
+            }
+        };
 
-        while(testCases>0){
-            String line = testList.get(get);
+        Arrays.sort(s, 0, n, customComparator);
 
-            //Write your code here
-            Pattern pattern = Pattern.compile("<(.+)>([^<]+)</\\1>");
-            Matcher m = pattern.matcher(line);
-
-            System.out.println(m.find());
-
-            testCases--;
-            get++;
+        //Output
+        for(int i=0;i<n;i++)
+        {
+            System.out.println(s[i]);
         }
     }
 
