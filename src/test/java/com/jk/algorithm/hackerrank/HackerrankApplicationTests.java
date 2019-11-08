@@ -15,10 +15,29 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        BigInteger a = new BigInteger(String.valueOf(13));
-        boolean factor = a.isProbablePrime(1);
+        int n = 5;
+        int[] intList = new int[n];
 
-        System.out.println("J tag");
+        intList[0] = 1;
+        intList[1] = -2;
+        intList[2] = 4;
+        intList[3] = -5;
+        intList[4] = 1;
+
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n - i; j++) {
+                int sum = 0;
+                for (int k = 0; k < i + 1; k++) {
+                    sum += intList[j+k];
+                }
+                if (sum < 0) {
+                    count++;
+                }
+            }
+        }
+
+        System.out.println("J Tag");
     }
-
 }
