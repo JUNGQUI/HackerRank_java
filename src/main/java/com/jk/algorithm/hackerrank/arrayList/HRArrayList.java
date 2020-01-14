@@ -1,27 +1,18 @@
-package com.jk.algorithm.hackerrank;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+package com.jk.algorithm.hackerrank.arrayList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class HackerrankApplicationTests {
-
-//    Pattern pattern = Pattern.compile("\\d{1,2}");
-
-    @Test
-    public void contextLoads() {
-        int readNumberCount = 5;
+public class HRArrayList {
+    public void solution() {
+        Scanner scanner = new Scanner(System.in);
+        int readNumberCount = Integer.parseInt(scanner.nextLine());
 
         ArrayList<ArrayList<Integer>> fullArray = new ArrayList<>();
 
         for (int i = 0; i < readNumberCount; i++) {
-            ArrayList<String> tempArray = new ArrayList<>(Arrays.asList("5 41 77 74 22 44".split(" ")));
+            ArrayList<String> tempArray = new ArrayList<>(Arrays.asList(scanner.nextLine().split(" ")));
             ArrayList<Integer> semiArray = new ArrayList<>();
 
             for (int j = 1; j < tempArray.size(); j++) {
@@ -31,11 +22,10 @@ public class HackerrankApplicationTests {
             fullArray.add(semiArray);
         }
 
-        int queryLimit = 5;
+        int queryLimit = Integer.parseInt(scanner.nextLine());
 
         for (int a = 0; a < queryLimit; a++) {
-            ArrayList<String> queryArray = new ArrayList<>();
-            queryArray = new ArrayList<>(Arrays.asList("1 3".split(" ")));
+            ArrayList<String> queryArray = new ArrayList<>(Arrays.asList(scanner.nextLine().split(" ")));
 
             int arrayNumber = Integer.parseInt(queryArray.get(0));
             int columnNumber = Integer.parseInt(queryArray.get(1));
@@ -49,6 +39,6 @@ public class HackerrankApplicationTests {
             }
         }
 
-        System.out.println("J Tag");
+        scanner.close();
     }
 }
