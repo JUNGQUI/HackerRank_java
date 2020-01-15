@@ -16,38 +16,62 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int readNumberCount = 5;
+        ArrayList<ArrayList<String>> query = new ArrayList<>();
+        ArrayList<int[]> numbers = new ArrayList<>();
 
-        ArrayList<ArrayList<Integer>> fullArray = new ArrayList<>();
+        query.add(new ArrayList<>(Arrays.asList("5 3".split(" "))));
+        query.add(new ArrayList<>(Arrays.asList("6 5".split(" "))));
+        query.add(new ArrayList<>(Arrays.asList("6 3".split(" "))));
+        query.add(new ArrayList<>(Arrays.asList("3 1".split(" "))));
 
-        for (int i = 0; i < readNumberCount; i++) {
-            ArrayList<String> tempArray = new ArrayList<>(Arrays.asList("5 41 77 74 22 44".split(" ")));
-            ArrayList<Integer> semiArray = new ArrayList<>();
+        numbers.add(new int[]{0, 0, 0, 0, 0});
+        numbers.add(new int[]{0, 0, 0, 1, 1, 1});
+        numbers.add(new int[]{0, 0, 1, 1, 1, 0});
+        numbers.add(new int[]{0, 1, 0});
 
-            for (int j = 1; j < tempArray.size(); j++) {
-                semiArray.add(Integer.parseInt(tempArray.get(j)));
+        for (int i = 0; i < 4; i++) {
+            int arrayCount = Integer.parseInt(query.get(i).get(0));
+            int leap = Integer.parseInt(query.get(i).get(1));
+
+            int[] tempArray = numbers.get(i);
+            int startIndex = 0;
+
+            for (int j = 0; j < arrayCount; j++) {
+                if (startIndex+leap >= arrayCount) {
+                    System.out.println("true");
+                    break;
+                }
+
+                if (tempArray[startIndex+leap] == 0) {
+                    startIndex = startIndex+leap;
+                    continue;
+                }
+
+                if (startIndex+1 >= arrayCount) {
+                    System.out.println("true");
+                    break;
+                }
+
+                if (tempArray[startIndex+1] == 0) {
+                    startIndex++;
+                    continue;
+                }
+
+                if (startIndex-1 > -1) {
+                    if (tempArray[startIndex-1] == 0) {
+                        startIndex--;
+                    } else {
+                        System.out.println("false");
+                        break;
+                    }
+                } else {
+                    System.out.println("false");
+                    break;
+                }
             }
-
-            fullArray.add(semiArray);
         }
 
-        int queryLimit = 5;
-
-        for (int a = 0; a < queryLimit; a++) {
-            ArrayList<String> queryArray = new ArrayList<>();
-            queryArray = new ArrayList<>(Arrays.asList("1 3".split(" ")));
-
-            int arrayNumber = Integer.parseInt(queryArray.get(0));
-            int columnNumber = Integer.parseInt(queryArray.get(1));
-
-            ArrayList<Integer> tempArray = fullArray.get(arrayNumber-1);
-
-            if (tempArray.size() == 0 || tempArray.size() < columnNumber) {
-                System.out.println("ERROR!");
-            } else {
-                System.out.println(tempArray.get(columnNumber-1));
-            }
-        }
+        System.out.println("WTF, false");
 
         System.out.println("J Tag");
     }
