@@ -71,8 +71,20 @@ public class HackerrankApplicationTests {
             }
         }
 
-        System.out.println("WTF, false");
-
         System.out.println("J Tag");
+    }
+
+    private static boolean test(int leap, int[] game) {
+        int length = game.length;
+
+        for (int i = 0; i < length; i++) {
+            if (i+leap-1 >= length) {
+                return true;
+            } else {
+                if (game[i+leap] == 0) {
+
+                }
+            }
+        }
     }
 }
