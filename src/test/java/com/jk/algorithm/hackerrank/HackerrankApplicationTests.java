@@ -4,11 +4,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -18,35 +16,52 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int arrayNumber = 5;
-        List<String> array = new ArrayList<>(
-                Arrays.asList(("12 0 1 78 12").split(" "))
-        );
+        String input = "[{]}";
+//        String input = "[]{}";
 
-        int queryNumber = 2;
+        Stack<String> tempStack = new Stack<>();
+        boolean tempFlag = false;
 
-        ArrayList<String> queryArray = new ArrayList<>();
-        queryArray.add("Insert");
-        queryArray.add("5 23");
-        queryArray.add("Delete");
-        queryArray.add("0");
-
-        for (int i = 0; i < queryNumber; i++) {
-            String query = queryArray.get(i);
-            String condition = queryArray.get(i+1);
-
-            if ("Insert".equals(query)) {
-                String[] conditions = condition.split(" ");
-                array.add(Integer.parseInt(conditions[0]), conditions[1]);
-            } else if ("Delete".equals(query)) {
-                array.remove(Integer.parseInt(condition));
+        for (int i = input.length()-1; i > -1; i--) {
+            if (tempFlag) {
+                break;
+            }
+            String tempString = input.substring(i, i+1);
+            if ("{".equals(tempString)
+                    || "(".equals(tempString)
+                    || "[".equals(tempString)) {
+                if (tempStack.size() > 0) {
+                    if (!this.checkStack(tempStack.pop(), tempString)) {
+                        System.out.println(false);
+                        tempFlag = true;
+                        break;
+                    }
+                } else {
+                    System.out.println(false);
+                    tempFlag = true;
+                    break;
+                }
+            } else if ("}".equals(tempString)
+                    || ")".equals(tempString)
+                    || "]".equals(tempString)) {
+                tempStack.push(tempString);
             }
         }
 
-        for (String write : array) {
-            System.out.print(write + " ");
+        if (!tempFlag) {
+            if (tempStack.size() > 0) {
+                System.out.println(false);
+            } else {
+                System.out.println(true);
+            }
         }
 
         System.out.println("J tag");
+    }
+
+    private boolean checkStack(String checkSum, String needCheck) {
+        return "[".equals(needCheck) && "]".equals(checkSum)
+                || "{".equals(needCheck) && "}".equals(checkSum)
+                || "(".equals(needCheck) && ")".equals(checkSum);
     }
 }
