@@ -7,6 +7,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -16,75 +18,35 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        ArrayList<ArrayList<String>> query = new ArrayList<>();
-        ArrayList<int[]> numbers = new ArrayList<>();
+        int arrayNumber = 5;
+        List<String> array = new ArrayList<>(
+                Arrays.asList(("12 0 1 78 12").split(" "))
+        );
 
-        query.add(new ArrayList<>(Arrays.asList("5 3".split(" "))));
-        query.add(new ArrayList<>(Arrays.asList("6 5".split(" "))));
-        query.add(new ArrayList<>(Arrays.asList("6 3".split(" "))));
-        query.add(new ArrayList<>(Arrays.asList("3 1".split(" "))));
+        int queryNumber = 2;
 
-        numbers.add(new int[]{0, 0, 0, 0, 0});
-        numbers.add(new int[]{0, 0, 0, 1, 1, 1});
-        numbers.add(new int[]{0, 0, 1, 1, 1, 0});
-        numbers.add(new int[]{0, 1, 0});
+        ArrayList<String> queryArray = new ArrayList<>();
+        queryArray.add("Insert");
+        queryArray.add("5 23");
+        queryArray.add("Delete");
+        queryArray.add("0");
 
-        for (int i = 0; i < 4; i++) {
-            int arrayCount = Integer.parseInt(query.get(i).get(0));
-            int leap = Integer.parseInt(query.get(i).get(1));
+        for (int i = 0; i < queryNumber; i++) {
+            String query = queryArray.get(i);
+            String condition = queryArray.get(i+1);
 
-            int[] tempArray = numbers.get(i);
-            int startIndex = 0;
-
-            for (int j = 0; j < arrayCount; j++) {
-                if (startIndex+leap >= arrayCount) {
-                    System.out.println("true");
-                    break;
-                }
-
-                if (tempArray[startIndex+leap] == 0) {
-                    startIndex = startIndex+leap;
-                    continue;
-                }
-
-                if (startIndex+1 >= arrayCount) {
-                    System.out.println("true");
-                    break;
-                }
-
-                if (tempArray[startIndex+1] == 0) {
-                    startIndex++;
-                    continue;
-                }
-
-                if (startIndex-1 > -1) {
-                    if (tempArray[startIndex-1] == 0) {
-                        startIndex--;
-                    } else {
-                        System.out.println("false");
-                        break;
-                    }
-                } else {
-                    System.out.println("false");
-                    break;
-                }
+            if ("Insert".equals(query)) {
+                String[] conditions = condition.split(" ");
+                array.add(Integer.parseInt(conditions[0]), conditions[1]);
+            } else if ("Delete".equals(query)) {
+                array.remove(Integer.parseInt(condition));
             }
         }
 
-        System.out.println("J Tag");
-    }
-
-    private static boolean test(int leap, int[] game) {
-        int length = game.length;
-
-        for (int i = 0; i < length; i++) {
-            if (i+leap-1 >= length) {
-                return true;
-            } else {
-                if (game[i+leap] == 0) {
-
-                }
-            }
+        for (String write : array) {
+            System.out.print(write + " ");
         }
+
+        System.out.println("J tag");
     }
 }
