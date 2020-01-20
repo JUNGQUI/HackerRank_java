@@ -1,5 +1,6 @@
 package com.jk.algorithm.hackerrank;
 
+import jdk.nashorn.internal.ir.LiteralNode;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,6 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -16,75 +18,35 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        ArrayList<ArrayList<String>> query = new ArrayList<>();
-        ArrayList<int[]> numbers = new ArrayList<>();
+        int pair = 0;
 
-        query.add(new ArrayList<>(Arrays.asList("5 3".split(" "))));
-        query.add(new ArrayList<>(Arrays.asList("6 5".split(" "))));
-        query.add(new ArrayList<>(Arrays.asList("6 3".split(" "))));
-        query.add(new ArrayList<>(Arrays.asList("3 1".split(" "))));
+        int[] ar = new int[7];
+        ar[0] = 10;
+        ar[1] = 10;
+        ar[2] = 10;
+        ar[3] = 10;
+        ar[4] = 20;
+        ar[5] = 20;
+        ar[6] = 50;
 
-        numbers.add(new int[]{0, 0, 0, 0, 0});
-        numbers.add(new int[]{0, 0, 0, 1, 1, 1});
-        numbers.add(new int[]{0, 0, 1, 1, 1, 0});
-        numbers.add(new int[]{0, 1, 0});
+        int[] tempArray = Arrays.copyOf(ar, ar.length);
+        int[] uniques = Arrays.stream(ar).distinct().toArray();
 
-        for (int i = 0; i < 4; i++) {
-            int arrayCount = Integer.parseInt(query.get(i).get(0));
-            int leap = Integer.parseInt(query.get(i).get(1));
 
-            int[] tempArray = numbers.get(i);
-            int startIndex = 0;
+        for (int unique : uniques) {
+            int sameValue = 0;
 
-            for (int j = 0; j < arrayCount; j++) {
-                if (startIndex+leap >= arrayCount) {
-                    System.out.println("true");
-                    break;
-                }
-
-                if (tempArray[startIndex+leap] == 0) {
-                    startIndex = startIndex+leap;
-                    continue;
-                }
-
-                if (startIndex+1 >= arrayCount) {
-                    System.out.println("true");
-                    break;
-                }
-
-                if (tempArray[startIndex+1] == 0) {
-                    startIndex++;
-                    continue;
-                }
-
-                if (startIndex-1 > -1) {
-                    if (tempArray[startIndex-1] == 0) {
-                        startIndex--;
-                    } else {
-                        System.out.println("false");
-                        break;
+            for (int i = 0; i < tempArray.length; i++) {
+                if (tempArray[i] != 0) {
+                    if (unique == tempArray[i]) {
+                        sameValue++;
+                        tempArray[i] = 0;
                     }
-                } else {
-                    System.out.println("false");
-                    break;
                 }
             }
+            pair += sameValue/2;
         }
 
         System.out.println("J Tag");
-    }
-
-    private static boolean test(int leap, int[] game) {
-        int length = game.length;
-
-        for (int i = 0; i < length; i++) {
-            if (i+leap-1 >= length) {
-                return true;
-            } else {
-                if (game[i+leap] == 0) {
-
-                }
-            }
-        }
     }
 }
