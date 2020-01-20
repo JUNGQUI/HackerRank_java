@@ -1,20 +1,13 @@
-package com.jk.algorithm.hackerrank;
+package com.jk.algorithm.hackerrank.javaSort;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.util.StringUtils;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
 
-import java.util.*;
+public class JavaSort {
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class HackerrankApplicationTests {
-
-//    Pattern pattern = Pattern.compile("\\d{1,2}");
-
-    static class Student{
+    class Student{
         private int id;
         private String fname;
         private double cgpa;
@@ -35,7 +28,7 @@ public class HackerrankApplicationTests {
         }
     }
 
-    static class CustomComparator implements Comparator<Student> {
+    class CustomComparator implements Comparator<Student> {
 
         @Override
         public int compare(Student o1, Student o2) {
@@ -55,18 +48,26 @@ public class HackerrankApplicationTests {
         }
     }
 
-    @Test
-    public void contextLoads() {
-        ArrayList<Student> studentList = new ArrayList<>();
+    public void solution () {
+        Scanner in = new Scanner(System.in);
+        int testCases = Integer.parseInt(in.nextLine());
 
-        studentList.add(new Student(33, "Rumpa", 3.68));
-        studentList.add(new Student(85, "Ashis", 3.85));
-        studentList.add(new Student(56, "Samiha", 3.75));
-        studentList.add(new Student(19, "Samara", 3.75));
-        studentList.add(new Student(22, "Fahim", 3.76));
+        List<Student> studentList = new ArrayList<Student>();
+        while(testCases>0){
+            int id = in.nextInt();
+            String fname = in.next();
+            double cgpa = in.nextDouble();
+
+            Student st = new Student(id, fname, cgpa);
+            studentList.add(st);
+
+            testCases--;
+        }
 
         studentList.sort(new CustomComparator());
 
-        System.out.println("J tag");
+        for(Student st: studentList){
+            System.out.println(st.getFname());
+        }
     }
 }
