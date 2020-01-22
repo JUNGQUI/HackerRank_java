@@ -13,24 +13,23 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int n = 8;
-        String s = "UDDDUDUU";
+        System.out.println(es(10, new int[] {3, 1}, new int[] {5, 2, 8}));
+        System.out.println(es(5, new int[] {4}, new int[] {5}));
 
-        int currentLevel = 0;
-        int countingValley = 0;
+        System.out.println("J Tag");
+    }
 
-        for (char c : s.toCharArray()) {
-            if ('U' == c) {
-                currentLevel++;
-            } else {
-                currentLevel--;
-            }
+    private int es (int b, int[] key, int[] usb) {
+        int result = -1;
 
-            if (currentLevel == 0 && 'U' == c) {
-                countingValley++;
+        for (int tk : key) {
+            for (int tu : usb) {
+                if (result < tk + tu && tk + tu <= b) {
+                    result = tk + tu;
+                }
             }
         }
 
-        System.out.println("J Tag");
+        return result;
     }
 }
