@@ -5,8 +5,6 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Arrays;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class HackerrankApplicationTests {
@@ -15,32 +13,25 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int pair = 0;
+        int n = 6;
+        int p = 5;
 
-        int[] ar = new int[7];
-        ar[0] = 10;
-        ar[1] = 10;
-        ar[2] = 10;
-        ar[3] = 10;
-        ar[4] = 20;
-        ar[5] = 20;
-        ar[6] = 50;
+        int startPage = 1;
+        int endPage = n/2 + 1;
+        int targetPage = p/2 + 1;
 
-        int[] tempArray = Arrays.copyOf(ar, ar.length);
-        int[] uniques = Arrays.stream(ar).distinct().toArray();
+//        int fromStartPage = p/2;
+//        int fromEndPage = (n-p)/2;
 
+        int fromStartPage = targetPage - startPage;
+        int fromEndPage = endPage - targetPage;
 
-        for (int unique : uniques) {
-            int sameValue = 0;
-
-            for (int i = 0; i < tempArray.length; i++) {
-                if (tempArray[i] != 0) {
-                    if (unique == tempArray[i]) {
-                        sameValue++;
-                        tempArray[i] = 0;
-                    }
-                }
-            }
+        if (fromStartPage <= fromEndPage) {
+            System.out.println(fromStartPage);
+        } else {
+            System.out.println(fromEndPage);
         }
+
+        System.out.println("J Tag");
     }
 }
