@@ -13,23 +13,22 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int n = 6;
-        int p = 5;
+        int n = 8;
+        String s = "UDDDUDUU";
 
-        int startPage = 1;
-        int endPage = n/2 + 1;
-        int targetPage = p/2 + 1;
+        int currentLevel = 0;
+        int countingValley = 0;
 
-//        int fromStartPage = p/2;
-//        int fromEndPage = (n-p)/2;
+        for (char c : s.toCharArray()) {
+            if ('U' == c) {
+                currentLevel++;
+            } else {
+                currentLevel--;
+            }
 
-        int fromStartPage = targetPage - startPage;
-        int fromEndPage = endPage - targetPage;
-
-        if (fromStartPage <= fromEndPage) {
-            System.out.println(fromStartPage);
-        } else {
-            System.out.println(fromEndPage);
+            if (currentLevel == 0 && 'U' == c) {
+                countingValley++;
+            }
         }
 
         System.out.println("J Tag");
