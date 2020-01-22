@@ -10,26 +10,26 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class HackerrankApplicationTests {
 
 //    Pattern pattern = Pattern.compile("\\d{1,2}");
+//    new int[] {3, 1};
 
     @Test
     public void contextLoads() {
-        System.out.println(es(10, new int[] {3, 1}, new int[] {5, 2, 8}));
-        System.out.println(es(5, new int[] {4}, new int[] {5}));
+        int x = 1;
+        int y = 3;
+        int z = 2;
+
+        int cA = Math.abs(x-z);
+        int cB = Math.abs(y-z);
+
+        if (cA > cB) {
+            System.out.println("Cat B");
+        } else if (cA < cB) {
+            System.out.println("Cat A");
+        } else {
+            System.out.println("Mouse C");
+        }
 
         System.out.println("J Tag");
     }
 
-    private int es (int b, int[] key, int[] usb) {
-        int result = -1;
-
-        for (int tk : key) {
-            for (int tu : usb) {
-                if (result < tk + tu && tk + tu <= b) {
-                    result = tk + tu;
-                }
-            }
-        }
-
-        return result;
-    }
 }
