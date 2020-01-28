@@ -6,6 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -17,22 +19,28 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
+        List<Integer> a = new ArrayList<>();
+        a.add(4);
+        a.add(6);
+        a.add(5);
+        a.add(3);
+        a.add(3);
+        a.add(1);
+        List<Integer> uniqueSet = new ArrayList<>(new LinkedHashSet<>(a));
 
-        int[][] s = new int[][]{
-                new int[]{4, 5, 8},
-                new int[]{2, 4, 1},
-                new int[]{1, 9, 7}
-        };
+        int result = 0;
 
-        int costResult = 0;
+        for (Integer value : uniqueSet) {
+            int length = 0;
 
-        int[][] compare = new int[][]{
+            for (Integer integer : a) {
+                if (integer - value >= 0 && integer - value <= 1) {
+                    length++;
+                }
+            }
 
-        };
-
-        for (int temp[] : s) {
-            for (int column : temp) {
-
+            if (result < length) {
+                result = length;
             }
         }
 
