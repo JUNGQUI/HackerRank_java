@@ -5,6 +5,9 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class HackerrankApplicationTests {
@@ -14,22 +17,25 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int x = 1;
-        int y = 3;
-        int z = 2;
 
-        int cA = Math.abs(x-z);
-        int cB = Math.abs(y-z);
+        int[][] s = new int[][]{
+                new int[]{4, 5, 8},
+                new int[]{2, 4, 1},
+                new int[]{1, 9, 7}
+        };
 
-        if (cA > cB) {
-            System.out.println("Cat B");
-        } else if (cA < cB) {
-            System.out.println("Cat A");
-        } else {
-            System.out.println("Mouse C");
+        int costResult = 0;
+
+        int[][] compare = new int[][]{
+
+        };
+
+        for (int temp[] : s) {
+            for (int column : temp) {
+
+            }
         }
 
         System.out.println("J Tag");
     }
-
 }
