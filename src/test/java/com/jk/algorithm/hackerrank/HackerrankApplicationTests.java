@@ -17,16 +17,8 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int[] height = new int[] {1, 6, 3, 5, 2};
-        int k = 4;
-        List<Integer> heightList = new ArrayList<>();
-
-        for (int columnHeight : height) {
-            heightList.add(columnHeight);
-        }
-
-        Collections.sort(heightList);
-        System.out.println(heightList.get(heightList.size()-1) - k);
+        int[] h = new int[] {1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7};
+        String word = "zaba";
 
         System.out.println("J Tag");
     }
