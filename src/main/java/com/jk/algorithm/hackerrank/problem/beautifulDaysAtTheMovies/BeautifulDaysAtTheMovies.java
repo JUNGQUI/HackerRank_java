@@ -1,7 +1,5 @@
 package com.jk.algorithm.hackerrank.problem.beautifulDaysAtTheMovies;
 
-import java.util.Stack;
-
 public class BeautifulDaysAtTheMovies {
 
     // Complete the beautifulDays function below.
