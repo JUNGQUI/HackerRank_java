@@ -17,8 +17,26 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int[] h = new int[] {1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7};
-        String word = "zaba";
+        int i = 21, j = 23, k = 6;
+
+        int result = 0;
+
+        for (int a = 0; a <= j-i; a++) {
+            char[] f = String.valueOf(i+a).toCharArray();
+            StringBuilder tempS = new StringBuilder();
+            for (int b = f.length-1; b >= 0; b--) {
+                tempS.append(f[b]);
+            }
+
+            String s = tempS.toString();
+
+            int tempResult = Math.abs((i+a) - Integer.parseInt(s));
+
+            if (tempResult%k == 0) {
+                result++;
+            }
+        }
+//        return result;
 
         System.out.println("J Tag");
     }

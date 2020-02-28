@@ -21,7 +21,7 @@ public class SubstringComparison {
                 smallest = str;
             }
             if(largest.compareTo(str)<0){
-                largest=str;
+                largest = str;
             }
         }
 
