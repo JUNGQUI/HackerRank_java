@@ -17,27 +17,31 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int i = 21, j = 23, k = 6;
+        int[] a = new int[]{1, 2, 3};
+        int k = 2;
+        int[] queries = new int[]{0, 1, 2};
 
-        int result = 0;
+        int rotation = k%a.length;
+        int[] resultIDX = new int[a.length];
+        int[] result = new int[queries.length];
 
-        for (int a = 0; a <= j-i; a++) {
-            char[] f = String.valueOf(i+a).toCharArray();
-            StringBuilder tempS = new StringBuilder();
-            for (int b = f.length-1; b >= 0; b--) {
-                tempS.append(f[b]);
-            }
+        for (int i = 0; i < a.length; i++) {
+            resultIDX[i] = i+rotation >= a.length ? i+rotation-a.length : i+rotation;
+        }
 
-            String s = tempS.toString();
-
-            int tempResult = Math.abs((i+a) - Integer.parseInt(s));
-
-            if (tempResult%k == 0) {
-                result++;
+        for (int x = 0; x < queries.length; x++) {
+            int query = queries[x];
+            for (int y = 0; y < resultIDX.length; y++) {
+                int idx = resultIDX[y];
+                if (query == idx) {
+                    result[x] = a[y];
+                    break;
+                }
             }
         }
-//        return result;
 
         System.out.println("J Tag");
     }
 }
+
+
