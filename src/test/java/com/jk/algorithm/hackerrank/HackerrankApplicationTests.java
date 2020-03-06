@@ -17,30 +17,28 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int[] a = new int[]{1, 2, 3};
-        int k = 2;
-        int[] queries = new int[]{0, 1, 2};
+        int[] p = new int[] {5, 2, 1, 3, 4};
+        int[] result = new int[p.length];
 
-        int rotation = k%a.length;
-        int[] resultIDX = new int[a.length];
-        int[] result = new int[queries.length];
-
-        for (int i = 0; i < a.length; i++) {
-            resultIDX[i] = i+rotation >= a.length ? i+rotation-a.length : i+rotation;
-        }
-
-        for (int x = 0; x < queries.length; x++) {
-            int query = queries[x];
-            for (int y = 0; y < resultIDX.length; y++) {
-                int idx = resultIDX[y];
-                if (query == idx) {
-                    result[x] = a[y];
-                    break;
-                }
-            }
+        for (int i = 0; i < p.length; i++) {
+            result[i] = this.search(p, this.search(p, i+1));
         }
 
         System.out.println("J Tag");
+    }
+
+    private int search (int[] array, int search) {
+        int idx = 1;
+
+        for (int temp : array) {
+            if (temp == search) {
+                break;
+            } else {
+                idx++;
+            }
+        }
+
+        return idx;
     }
 }
 
