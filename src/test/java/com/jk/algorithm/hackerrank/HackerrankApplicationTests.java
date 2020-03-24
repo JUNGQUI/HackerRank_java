@@ -17,11 +17,24 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int[] p = new int[] {5, 2, 1, 3, 4};
-        int[] result = new int[p.length];
+        int[] c = new int[]{1, 1, 1, 0, 1, 1, 0, 0, 0, 0};
+        int k = 3;
+        int result = 0, i = 0, n = c.length;
 
-        for (int i = 0; i < p.length; i++) {
-            result[i] = this.search(p, this.search(p, i+1));
+        result++;
+        i = (i+k)%n;
+
+        if (c[i] == 1) {
+            result += 2;
+        }
+
+        while((i+k)%n != 0) {
+            result++;
+            i = (i+k)%n;
+
+            if (c[i] == 1) {
+                result += 2;
+            }
         }
 
         System.out.println("J Tag");
