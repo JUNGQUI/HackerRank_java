@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigInteger;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -17,24 +18,43 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int[] c = new int[]{1, 1, 1, 0, 1, 1, 0, 0, 0, 0};
-        int k = 3;
-        int result = 0, i = 0, n = c.length;
+        String s = "y";
+        String t = "yu";
+        int k = 2;
+        char[] charS = s.toCharArray();
+        char[] charT = t.toCharArray();
+        String result = "";
+        StringBuilder sameString = new StringBuilder();
+        boolean flag = false;
 
-        result++;
-        i = (i+k)%n;
+        sameString.
 
-        if (c[i] == 1) {
-            result += 2;
+        if (s.equals(t)) {
+            result = "Yes";
         }
 
-        while((i+k)%n != 0) {
-            result++;
-            i = (i+k)%n;
-
-            if (c[i] == 1) {
-                result += 2;
+        for (int i = 0; i < s.length(); i++) {
+            if (i < t.length()) {
+                if (charS[i] == charT[i] && !flag) {
+                    sameString.append(charS[i]);
+                } else {
+                    flag = true;
+                }
+            } else {
+                break;
             }
+        }
+
+        s = s.replaceAll(sameString.toString(), "");
+        t = t.replaceAll(sameString.toString(), "");
+
+        if (k == s.length() + t.length() ||
+                (t.length() == 0 && s.length() <= k) ||
+                (s.length() == 0 && t.length() <= k)
+        ) {
+            result = "Yes";
+        } else {
+            result = "No";
         }
 
         System.out.println("J Tag");
