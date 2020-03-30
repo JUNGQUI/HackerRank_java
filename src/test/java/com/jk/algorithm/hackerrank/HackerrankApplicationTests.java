@@ -27,8 +27,6 @@ public class HackerrankApplicationTests {
         StringBuilder sameString = new StringBuilder();
         boolean flag = false;
 
-        sameString.
-
         if (s.equals(t)) {
             result = "Yes";
         }
@@ -48,12 +46,15 @@ public class HackerrankApplicationTests {
         s = s.replaceAll(sameString.toString(), "");
         t = t.replaceAll(sameString.toString(), "");
 
-        if (k == s.length() + t.length() ||
-                (t.length() == 0 && s.length() <= k) ||
-                (s.length() == 0 && t.length() <= k)
-        ) {
+        int commonLength = sameString.toString().length();
+
+        if((s.length()+t.length()-2*commonLength)>k){
+            result = "No";
+        } else if((s.length()+t.length()-2*commonLength)%2==k%2){
             result = "Yes";
-        } else {
+        } else if((s.length()+t.length()-k)<0){
+            result = "Yes";
+        } else{
             result = "No";
         }
 
