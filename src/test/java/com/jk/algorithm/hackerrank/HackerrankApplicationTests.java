@@ -16,21 +16,27 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int [] arr = new int[]{5, 4, 4, 2, 2, 8};
-        int [] temp = Arrays.stream(arr).distinct().toArray();
-        Arrays.sort(temp);
+        int k = 7;
+        List<Integer> s = new ArrayList<>();
+        int[] tempArray = new int[]{278,576,496,727,410,124,338,149,209,702,282,718,771,575,436};
+        List<Integer> result = new ArrayList<>();
 
-        int[] result = new int[temp.length];
+        for (int temp : tempArray) {
+            s.add(temp);
+        }
 
-        for (int index = 0; index < temp.length; index++) {
-            int unique = temp[index];
-            int tempResult = 0;
-            for (int arrObj : arr) {
-                if (arrObj - unique >= 0) {
-                    tempResult++;
+        for (int i = 0; i < s.size()-1; i++) {
+            for (int j = i+1; j < s.size(); j++) {
+                if ((s.get(i) + s.get(j)) % k != 0) {
+                    if (!result.contains(s.get(i))) {
+                        result.add(s.get(i));
+                    }
+
+                    if (!result.contains(s.get(j))) {
+                        result.add(s.get(j));
+                    }
                 }
             }
-            result[index] = tempResult;
         }
 
         System.out.println("J Tag");
