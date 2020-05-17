@@ -17,59 +17,22 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        System.out.println("J Tag");
-    }
+        String[] topic = new String[] {
+                "10101",
+                "11100",
+                "11010",
+                "00101"
+        };
 
-    private int search (int[] array, int search) {
-        int idx = 1;
+        for (int i = 0; i < topic.length; i++) {
+            for (int j = i + 1; j < topic.length; j++) {
 
-        for (int temp : array) {
-            if (temp == search) {
-                break;
-            } else {
-                idx++;
             }
         }
 
-        return idx;
+        System.out.println("J Tag");
     }
 }
 
 
-
-//    String word = "bhljuexsyuuvyhztsimgvoxiyycuzeasmzghajvrjnykbdhyreufwirlccjhtfjuqvzidfdyidtxnikriwrvtoqenazltkbjstmrwtgdkwvschwpgfzqsacuuvjfpadbohqnywgsntoqquburdtpfpptrkfcsdcevbmcmhecxncrdirkwbmvqgynabprmdbjwhbcrncwdukokijzenidfqcrezgfxvatqffxezguqyztqargorrzknklmjfikrvatzstlmwjjrypjimkwzybcbinumkoiosqypajdajcphqdndcmvygsjjfreddemldzurfeeelztblokbfprielfojcgilsrxalovpxjchpufxerhhbgnhjjsrupofxjrimgndpnomkyzfqiqjxqxbtvmxvyrzmsgzwcgqquekxqjwfudqzydncuizvkzawcteorormmaqoiacevzqqjrwfhoshrepkcynkwdrkoeqesurqtzcqcdaonfsuwcuaokhimsynoyfwprdmhyesfpcxnmurltmwqwwenzmxjgopkcifomcjonllrdpwmtzubsoinwnlqcszsealyvnhwjnnuxkwyiopsmtvivjbcrkcxsrmopbchayttisbzxktfxwenesgysuwvkfdwkagbdlpfzayxlntwykyyuewfzifjwwjnxjbknzfqezipnkkjkrnqethkpblnqusmhdfhkjkvelytlqnltmbbsurveyegehkofkutdekhemnmyqvhwwurhsuounbjzwhicxibfghjykectxtdyfhyybljnfvowjaizjffzpxnwcqahlzlfikhslacbfghdwvtqfqqxbqbmxksbiiypozbsyybmdzfrhxprmmgmmrpmtcajbsdstjjowhqwrsuzzvttmmksmsxghtsqgesrczefrzcfprtxvegkuzlypsjbhahbilioibyxifzjpzsrjpfelrzktziuojdbmdnknjzorzcawbsalusvdufbnamdirsmuijsmuuugnqovtwqgutqhpvqwlyycygirhusujqqvnpvwqsgstoscmclnbfytsuxzclhsfzfxkxsfjxkvabuttbscomybdepwrqndoppvtikpmqkdsjixsocbzbswooayozoyrzyhbushytgvprajdcstirvvwkaznlhcxdqejuqpjuhwfqeseigscrstbxqvyfpnwxztvhqxgbbslffitlsxdqvaextbexuwwdiejfsmdmgfpounfywkuyypnyucmibazrcbivlwzszsfjhvkvpcbqbuqdllgcvqjibrfazennnmffpyheodzfldmnradktpbjkkpqvyhygxlunqhqtxnadioghyjomokbtavxyfbidmelfqrsfxekbqxuuwehghvbnavvjrgdjgczvfcponryacggjmfzvalipnpmxbjefhujbgymqjaullceylijkaspltedadskhefbkqrqtsgbdtxwkzyaqyqemwcjysfkvzwgqcnuzgendculxttrdsxsxmxqfdgutpnyjolknsiuezcvujxlpotblpmpgjjvukpjitayuahcttxdmomludxesiutmpxnpqnrkolmbsdtdoksakpgfyozgnsgtbfbedwoghhhyndyzpezihblyfvigwhkqfygzwcbmbpiimeogzoqhdwisfanuncucocgaqwkobzfidbbqgmaqqzdvfafmczdhuzkkmcvjgejgayrjarlurbmhvhosojxqdzznqpkropeexnjtsqkaienkgcibbtxashzzdnfdliciyyghecxlebapsexthlfulocnrsmlcqgkaqslqfiapoeuqrzjfswmonxlixmitdpafnndsifnrvdrsddkgdniojhnpmokhhiverylrhdrxyoqhbxnpsiktchnrhlbzahwzmjjvedyrtldihjetjwpycxpoccatlxigqodlsakvgetsaoubsezeyszapiyapwuaeisdzckiuuxtisywjsnhtlzptnojwbckpnabscvivbqdtgmgdsxqpxrebdovsgbksxugusjncvwqhwvaeezmkajhjiebbdpgtfqrnrjequlgeynvtrygkeqpqmjaigoepbfqguqkadvesqhcxmfsgilnlqcopfjekzzgtbymrfxkserpbwbcnpkkwhqfojvtpeuxjyiyitmgvyqfszsqgsmspbqoozqhisbwosdphwrdnxpknoqjiyavzfrvzwtlvqmuccymzivacvmqmbrwnthqqwadbpxhngtvvzvqieetfymhqedcxwhpkonbjnkudvfivhebhsnzsxzzjaddyqpktcvkgfejyixagxbdsicgvwqtlroyvxvgjdtvuukpniubgeenyppzyhsewdpocrchiqhcngcfopcbykcttgfwdfniwhzjnzoofmamkcuqgpmeywjfqfowfqxlyryekxogkjtowfjxdgowypixismveecselbbryhtswxgkfrydldvekuvkvsjcavjvhhclhavrywrckyfhwmzmqfbtbigbyjgrrkehtkmyhhtwnzjjktyvzbaqyuusdfguliqqkxuiqhkedftupgkmocgiroddijslfinxhytanzqqlhptrnybbuuyuthofrlwbzxsftflqwblleaecbzhdpqdmyxqgjvnetpyyzwefgbvsbjgbmrhqczriujldtqpolsmdgehwsmrczmfgbugfiomwfbwpxwvluaorgczsgxkzotrlsdkodqczcpvjhcpporirercxgxfwjekvvonigchggrzjueyskjhzokxmzkldnjcimunboojaqzvcdpmsonsfoowlreikclgqjamjvtmdskdpyotvojllpxoqxfzkgfhvmckjlhapayylkdiiptotsrjvyhmcomxsbyxqxxqpgfgenxeqndjcjlvqxsqioyvqgleazxszwccdkpzwmlzmasoaaryphmijhjuqpgwpunuimyiaylayazpnulmsphyqjxroujvoyddahutpacfuebouhppvrsavfkandiqeuoedxkqfkutogoesxhfsnvknivrieoojvsbvcuwhpjjthljozuatuoihddpluzxxnklwrkmkhnrehgbnjsmbcenyjcrwyzzgaqsfouwimwjlqgpygkqtsizszroumhkecovugpbhbiezjgduyilhyphsxkcbowigfpusgpcuopbtvhkofupvxklrfqemwjymbxdtauvmlmhzqtwqgryrvuaykxryxjbiqicsgyksoojojlqexosacjbjrplryelvmnrqodzemnbavywgwbuhffigvudtnqdtdkdxzxihlsvypqkogiylxvchdbruosugupkmdwkuepzkvmrnsylccpduzgvwndlepfvyhtytkggxrzofupbupqcjzxwdvxufiqwguwulkrlpzlxqbnxtdwuiemmpumhakpuchklyrtiorrqzapnwdhzuvcbzttlxygpnragvawbhkfrpqskskmkpiypqgymlqicwvflfltkkejqotaydqbdflqpnolwdasqvkxbvvfmasnwwhwqufkfnisaxzynjjddrxgvxktyiogjiwnyrulrxthfkbecgwbldqbpbzzudvajozhmlxtkiltqcclgfdmasdietvjglejokfociswlqxtbfhyoxwuronqlgjfjkphapcmcnbtgfgvludaoyhxseakzasslxvatvlejvsladkvjjmetfwpnnlorpemmamqhmpgkzzbxxzqwmbwfycgwemvvpyeoycgfsvwmutczfqwtusngsdktdufrycyfinzrvjflbzbpvreypnqhzzpkmnyzqqwvisnivsuozvdmtgzhzesfmxcyblrsdpqkxyqovfseuebeysdiqflwnjzplnserntnodwzmfvnatoxsjrclzfzhxjqqmnqdzxwdcssgeblgrezgwknapvbsppitfedryvzxqdzxvdiyuajycpbxxkpkhdekgxhyjzgcheedyszlihjfossmjdbouwttystfvpkbhcdyxmzeyqibqledsvjnyffidkkwbourovzndkfxnlpsizxkemavarmqelsnpgjezgfacbxzgxpvimbmambsvwmqbzilvpqjtcmbgerufbtbeqpmfgiwrughddpejuornucejnyfijstrzoneizbrgogturzfljgckyxdngrvawclptfrnvrwrwvurzmvxtkixllivrkcfxlguvlmngyfcdjqflggiunvhvuzkxhvqnwymjztermppcxqrgeobrbpargqlraqrjwkfnzgnudranaxqfmsaantchudfhvmuwfrbhmssgzxdxrfkxrytlbyaeflklvxhzpvafeunvqeiadxxclrotkfcymnkgygghtkuacbaoazpsbxjzmfidjpsaoiozjvulmcuzguyhphrgietadphlirgbmvmonsljumqrlengezdpchpfkwoyteprqyjbjupamjxeovuhueuxeuxfgnltehtouiepnlmrgltedeokmmiwbonglzcuuzzzfyuwbollpptcijkmsmhueevchpiuprshexwdfmwfgxccblwrkapnvplvoknfcrulvfjfnyzmtfjummlhpippsmfqfocmhkdgizkrsacjysnqskvpungzhzdgxwejklehueubwyinmebajhezjrcgoqielfzwhnsdcrctmrochftxuxicbagbnesyhdspbazhfxbdjunghnnogatkkaknajopclxaeyhjcmufbaoubmspuwhsdazfikvszhyunqiavavyyqcqzcgzsvxomrenckzcogkgnjdoyawvshefm";
-//    int k = 22;
-//    String result = "";
-//
-//        for (int i = 0; i < word.length(); i++) {
-//        String tempResult = "" + word.charAt(i);
-//        int max = word.charAt(i) + k;
-//        int min = word.charAt(i) - k;
-//
-//        for (int j = i + 1; j < word.length(); j++) {
-//        char c = word.charAt(j);
-//        int temp = c;
-//
-//        if (max >= temp && min <= temp) {
-//        tempResult += c;
-//
-//        if (max > temp + k) {
-//        max = temp + k;
-//        }
-//
-//        if (min < temp - k) {
-//        min = temp - k;
-//        }
-//        } else {
-//        break;
-//        }
-//
-//        if (result.length() < tempResult.length()) {
-//        result = tempResult;
-//        }
-//        }
-//        }
-//
-//        System.out.println((int)'a');
-//        System.out.println((int)'z');
 
