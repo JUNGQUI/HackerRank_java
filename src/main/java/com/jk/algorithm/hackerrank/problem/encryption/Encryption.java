@@ -1,28 +1,8 @@
-package com.jk.algorithm.hackerrank;
+package com.jk.algorithm.hackerrank.problem.encryption;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.ArrayList;
-import java.util.List;
-
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class HackerrankApplicationTests {
-
-//    Pattern pattern = Pattern.compile("\\d{1,2}");
-//    new int[] {3, 1};
-
-    @Test
-    public void contextLoads() {
-//        String s = "if man was meant to stay on the ground god would have given us roots";
-//        String s = "i am groot";
-//        String s = "haveaniceday";
-//        String s = "chillout";
-        String s = "iffactsdontfittotheorychangethefacts";
-
+public class Encryption {
+    // Complete the encryption function below.
+    static String encryption(String s) {
         StringBuilder result = new StringBuilder();
         s = s.replaceAll(" ", "");
 
@@ -58,9 +38,6 @@ public class HackerrankApplicationTests {
             }
         }
 
-        System.out.println("J tag");
+        return result.toString();
     }
 }
-
-
-
