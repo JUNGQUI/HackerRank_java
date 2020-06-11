@@ -1,29 +1,10 @@
-package com.jk.algorithm.hackerrank;
+package com.jk.algorithm.hackerrank.problem.organizingContainersOfBalls;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class HackerrankApplicationTests {
-
-//    Pattern pattern = Pattern.compile("\\d{1,2}");
-//    new int[] {3, 1};
-
-    @Test
-    public void contextLoads() {
-        int [][] container = new int[][] {
-                {0, 2, 1},
-                {1, 1, 1},
-                {2, 0, 0}
-        };
-
+public class OrganizingContainerOfBalls {
+    // Complete the organizingContainers function below.
+    static String organizingContainers(int[][] container) {
         int length = container.length;
         int [] sumOfHorizon = new int[length];
         int [] sumOfVertical = new int[length];
@@ -49,9 +30,6 @@ public class HackerrankApplicationTests {
             }
         }
 
-        System.out.println("J tag");
+        return result;
     }
 }
-
-
-
