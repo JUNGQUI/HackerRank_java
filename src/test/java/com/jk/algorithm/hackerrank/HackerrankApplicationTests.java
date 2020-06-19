@@ -18,36 +18,51 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int [][] container = new int[][] {
-                {0, 2, 1},
-                {1, 1, 1},
-                {2, 0, 0}
-        };
+        String w = "lmno";
+        String result = "";
 
-        int length = container.length;
-        int [] sumOfHorizon = new int[length];
-        int [] sumOfVertical = new int[length];
+        int pivot = 0;
 
-        for (int i = 0; i < length; i++) {
-            int SOH = 0;
-            for (int j = 0; j < length; j++) {
-                SOH += container[i][j];
-                sumOfVertical[j] += container[i][j];
+        for (int i = w.length()-1; i-1 >= 0; i--) {
+            int f = w.charAt(i-1);
+            int b = w.charAt(i);
+
+            if (f < b) {
+                pivot = i-1;
+                break;
+            } else {
+                if (i == 1) {
+                    pivot = -1;
+                }
             }
-            sumOfHorizon[i] = SOH;
         }
 
-        Arrays.sort(sumOfHorizon);
-        Arrays.sort(sumOfVertical);
+        if (pivot == -1) {
+            System.out.println("no answer");
+//            return "no answer";
+        }
 
-        String result = "Possible";
+        String temp = w.substring(pivot);
+        int pivotNumber = w.charAt(pivot);
 
-        for (int a = 0; a < length; a++) {
-            if (sumOfHorizon[a] != sumOfVertical[a]) {
-                result = "Impossible";
+        for (int j = temp.length()-1; j >= 0; j--) {
+            if (pivotNumber < (int)temp.charAt(j)) {
+                char[] chars = temp.toCharArray();
+
+                if (pivot == 0) {
+                    result = String.valueOf(chars[j]);
+                } else {
+                    result = w.substring(0, pivot) + chars[j];
+                }
+
+                chars[j] = w.charAt(pivot);
+                Arrays.sort(chars);
+                result += Arrays.toString(chars);
                 break;
             }
         }
+
+        System.out.println(result);
 
         System.out.println("J tag");
     }
