@@ -18,36 +18,28 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        int [][] container = new int[][] {
-                {0, 2, 1},
-                {1, 1, 1},
-                {2, 0, 0}
-        };
+        String w = "ab";
+        char[] charsw = w.toCharArray();
+        String result = "";
+        int checkPoint = 0;
 
-        int length = container.length;
-        int [] sumOfHorizon = new int[length];
-        int [] sumOfVertical = new int[length];
+        for (int i = charsw.length; i > 0; i--) {
+            int fCompare = charsw[i-1];
+            int bCompare = charsw[i];
 
-        for (int i = 0; i < length; i++) {
-            int SOH = 0;
-            for (int j = 0; j < length; j++) {
-                SOH += container[i][j];
-                sumOfVertical[j] += container[i][j];
-            }
-            sumOfHorizon[i] = SOH;
-        }
-
-        Arrays.sort(sumOfHorizon);
-        Arrays.sort(sumOfVertical);
-
-        String result = "Possible";
-
-        for (int a = 0; a < length; a++) {
-            if (sumOfHorizon[a] != sumOfVertical[a]) {
-                result = "Impossible";
-                break;
+            if (fCompare >= bCompare) {
+                if (i-1 == 0) {
+                    result = "no answer";
+                    break;
+                }
+            } else {
+                checkPoint = i-1;
             }
         }
+
+        char[] tempChars = w.substring(checkPoint).toCharArray();
+
+
 
         System.out.println("J tag");
     }
