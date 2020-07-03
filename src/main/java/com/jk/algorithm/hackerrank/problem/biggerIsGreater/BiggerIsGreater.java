@@ -1,24 +1,10 @@
-package com.jk.algorithm.hackerrank;
+package com.jk.algorithm.hackerrank.problem.biggerIsGreater;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class HackerrankApplicationTests {
-
-//    Pattern pattern = Pattern.compile("\\d{1,2}");
-//    new int[] {3, 1};
-
-    @Test
-    public void contextLoads() {
-        String w = "dkhc";
+public class BiggerIsGreater {
+    // Complete the biggerIsGreater function below.
+    static String biggerIsGreater(String w) {
         String result = "";
         int pivot = -1;
         int changeIDX = -1;
@@ -34,7 +20,7 @@ public class HackerrankApplicationTests {
         }
 
         if (pivot == -1) {
-            return;
+            return "no answer";
         }
 
         int compair = w.charAt(pivot);
@@ -62,9 +48,6 @@ public class HackerrankApplicationTests {
             result = "no answer";
         }
 
-        System.out.println("J tag");
+        return result;
     }
 }
-
-
-
