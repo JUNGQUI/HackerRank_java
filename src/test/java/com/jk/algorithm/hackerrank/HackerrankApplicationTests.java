@@ -18,48 +18,44 @@ public class HackerrankApplicationTests {
 
     @Test
     public void contextLoads() {
-        String w = "dkhc";
-        String result = "";
-        int pivot = -1;
-        int changeIDX = -1;
+        int[] kaprekarNumber = new int[]
+                {1, 9, 45, 55, 99, 297, 703, 999, 2223, 2728, 4950, 5050,
+                        7272, 7777, 9999, 17344, 22222, 77778, 82656, 95121, 99999};
+        StringBuilder result = new StringBuilder();
+        StringBuilder mResult = new StringBuilder();
 
-        for (int i = w.length()-1; i > 0; i--) {
-            int before = w.charAt(i);
-            int after = w.charAt(i-1);
+        int p = 1000, q = 10000;
 
-            if (before > after) {
-                pivot = i-1;
-                break;
+        for (int i = p; i <= q; i++) {
+            int temp = i*i;
+            int d = String.valueOf(i).length();
+            int r = 0, l = 0;
+
+            if ((temp + "").length() == 2*d) {
+                r = Integer.parseInt(String.valueOf(temp).substring(0, d));
+                l = Integer.parseInt(String.valueOf(temp).substring(d));
+            } else if ((temp + "").length() == (2*d)-1) {
+                r = Integer.parseInt(String.valueOf(temp).substring(0, d-1));
+                l = Integer.parseInt(String.valueOf(temp).substring(d-1));
+            }
+
+            if (r == 0 || l == 0) {
+                continue;
+            }
+
+            mResult.append(r + l == i ? (r + l) + " " : "");
+        }
+
+        for (int kkn : kaprekarNumber) {
+            if (kkn >= p && kkn <= q) {
+                result.append(kkn).append(" ");
             }
         }
 
-        if (pivot == -1) {
-            return;
-        }
-
-        int compair = w.charAt(pivot);
-
-        for (int i = w.length()-1; i > pivot; i--) {
-            int temp = w.charAt(i);
-
-            if (temp > compair) {
-                changeIDX = i;
-                break;
-            }
-        }
-
-        if (changeIDX != -1) {
-            char[] ws = w.toCharArray();
-            char temp = ws[pivot];
-            ws[pivot] = ws[changeIDX];
-            ws[changeIDX] = temp;
-            char[] needSort = Arrays.copyOfRange(ws, pivot+1, ws.length);
-            Arrays.sort(needSort);
-            char[] prefix = Arrays.copyOf(ws, pivot+1);
-
-            result += new String(prefix) + new String(needSort);
+        if ("".equals(result.toString())) {
+            System.out.println("INVALID RANGE");
         } else {
-            result = "no answer";
+            System.out.println(result);
         }
 
         System.out.println("J tag");
